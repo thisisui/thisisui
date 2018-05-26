@@ -1,8 +1,8 @@
 {
     "name": "This Is UI PWA",
-    "short_name": "THISISUI",
+    "short_name": "thisisui",
     "icons": [{
-      "src": "icons/icon-128x128.png",
+      "src": "icon.png",
         "sizes": "128x128",
         "type": "image/png"
       }
