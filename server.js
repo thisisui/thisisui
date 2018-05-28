@@ -2,6 +2,7 @@ var express = require('express');
 var enforce = require('express-sslify');
 var path = require('path');
 var app = express();
+var port = process.env.PORT || 8080;
 
 // Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
 // a load balancer (e.g. Heroku). See further comments below
@@ -12,4 +13,4 @@ app.get('/index.html', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(8081);
+app.listen(port);
