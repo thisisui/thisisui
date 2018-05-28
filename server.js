@@ -8,9 +8,17 @@ var port = process.env.PORT || 8080;
 // a load balancer (e.g. Heroku). See further comments below
 app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
-// viewed at http://localhost:8080
-app.get('/index.html', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+/* serves main page */
+app.get("/", function(req, res) {
+    res.sendfile('index.html')
 });
 
-app.listen(port);
+/* serves all the static files */
+app.get(/^(.+)$/, function(req, res) {
+    res.sendfile(__dirname + req.params[0]);
+});
+
+app.listen(port, function() {
+    console.log("Listening on " + port);
+});
+
